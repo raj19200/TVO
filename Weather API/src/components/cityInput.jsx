@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CityInput = () => {
+const CityInput = ({ onCityChange }) => {
   const [city, setCity] = useState("");
 
   const handleCityChange = (event) => {
@@ -9,6 +9,9 @@ const CityInput = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (city) {
+      onCityChange(city);
+    }
   };
 
   return (
