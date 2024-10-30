@@ -1,28 +1,28 @@
 const WeatherDisplay = () => {
   return (
-    <div>
-      <div>
-        <div>
+    <div className="container">
+      <div className="top">
+        <div className="location">
           <p>Toronto</p>
         </div>
-        <div>
+        <div className="temp">
           <h1>22°F</h1>
         </div>
-        <div>sunny</div>
+        <div className="description">sunny</div>
       </div>
 
-      <div>
-        <div>
-          <p>22°F</p>
+      <div className="bottom">
+        <div className="feels">
+          <p className="bold">22°F</p>
 
           <p>Feels Like</p>
         </div>
-        <div>
-          <p>22%</p>
+        <div className="humidity">
+          <p className="bold">22%</p>
           <p>Humidity</p>
         </div>
-        <div>
-          <p>14 MPH</p>
+        <div className="wind">
+          <p className="bold">14 MPH</p>
 
           <p>Wind Speed</p>
         </div>

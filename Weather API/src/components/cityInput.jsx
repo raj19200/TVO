@@ -12,16 +12,18 @@ const CityInput = () => {
   };
 
   return (
-    <div>
+    <div className="search-container">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={handleCityChange}
-          required
-        />
-        <button type="submit">Get Weather</button>
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Enter city name"
+            value={city}
+            onChange={handleCityChange}
+            required
+          />
+          <button type="submit" className="submit-button"></button>
+        </div>
       </form>
     </div>
   );
