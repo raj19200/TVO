@@ -11,7 +11,7 @@ const Home = () => {
   //   );
   //   console.log(response.data);
   const [weatherData, setWeatherData] = useState(null);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchWeather = async (city) => {
     try {
@@ -21,16 +21,23 @@ const Home = () => {
         }`
       );
       setWeatherData(response.data);
-      setError(false); // Clear previous errors
+      setError(null); // Clear previous errors
     } catch (err) {
-      setError(true);
+      // Check if the error is a 404
+      if (err.response && err.response.status === 404) {
+        setError("City not found! Please try again.");
+      } else {
+        setError("An error occurred! Please try again later.");
+      }
       setWeatherData(null);
     }
   };
   return (
     <div className="app">
       <CityInput onCityChange={fetchWeather} />
-      {error ? (
+      {weatherData == null && error == null ? (
+        <h3>Please Enter a city to view a weather</h3>
+      ) : error ? (
         <h3>City not found! Please try again later</h3>
       ) : (
         <WeatherDisplay weatherData={weatherData} />
