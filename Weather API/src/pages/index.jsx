@@ -4,12 +4,6 @@ import WeatherDisplay from "../components/weatherDisplay";
 import axios from "axios";
 
 const Home = () => {
-  //   const response = await axios.get(
-  //     `https://api.openweathermap.org/data/2.5/weather?q=windsor&units=metric&appid=${
-  //       import.meta.env.VITE_WEATHER_API_KEY
-  //     }`
-  //   );
-  //   console.log(response.data);
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -36,9 +30,12 @@ const Home = () => {
     <div className="app">
       <CityInput onCityChange={fetchWeather} />
       {weatherData == null && error == null ? (
-        <h3>Please Enter a city to view a weather</h3>
+        <h3>Please Enter a city to view weather</h3>
       ) : error ? (
-        <h3>City not found! Please try again later</h3>
+        <h3>
+          Oops! We couldn&apos;t find that city. Double-check the name and try
+          again!
+        </h3>
       ) : (
         <WeatherDisplay weatherData={weatherData} />
       )}

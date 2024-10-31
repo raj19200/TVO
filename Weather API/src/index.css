@@ -106,11 +106,11 @@ h1 {
 
 .app .bottom {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   text-align: center;
   width: 100%;
   margin: 1rem auto;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -120,8 +120,8 @@ h1 {
 }
 
 .submit-button {
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   background-color: white;
   background-image: url("https://img.icons8.com/material-outlined/24/000000/search.png");
   background-repeat: no-repeat;
@@ -139,4 +139,30 @@ h1 {
 
 .submit-button:active {
   transform: scale(0.95);
+}
+
+@media (max-width: 580px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .app input {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .app .bottom {
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+    top: 5%;
+  }
 }

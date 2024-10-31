@@ -6,9 +6,7 @@ const WeatherDisplay = ({ weatherData }) => {
           <p>{weatherData.name}</p>
         </div>
         <div className="temp">
-          {weatherData.main ? (
-            <h1>{weatherData.main.temp.toFixed()}°C</h1>
-          ) : null}
+          {weatherData.main && <h1>{weatherData.main.temp.toFixed()}°C</h1>}
         </div>
         <div className="description">
           {weatherData.weather ? <p>{weatherData.weather[0].main}</p> : null}
@@ -18,9 +16,7 @@ const WeatherDisplay = ({ weatherData }) => {
       {weatherData.name !== undefined && (
         <div className="bottom">
           <div className="feels">
-            {weatherData.main ? (
-              <p className="bold">{weatherData.main.temp.toFixed()}°C</p>
-            ) : null}
+            {weatherData.main && <p>{weatherData.main.temp.toFixed()}°C</p>}
             <p>Feels Like</p>
           </div>
           <div className="humidity">
@@ -40,37 +36,4 @@ const WeatherDisplay = ({ weatherData }) => {
     </div>
   );
 };
-// const WeatherDisplay = () => {
-//   return (
-//     <div className="container">
-//       <div className="top">
-//         <div className="location">
-//           <p>Toronto</p>
-//         </div>
-//         <div className="temp">
-//           <h1>22°F</h1>
-//         </div>
-//         <div className="description">sunny</div>
-//       </div>
-
-//       <div className="bottom">
-//         <div className="feels">
-//           <p className="bold">22°F</p>
-
-//           <p>Feels Like</p>
-//         </div>
-//         <div className="humidity">
-//           <p className="bold">22%</p>
-//           <p>Humidity</p>
-//         </div>
-//         <div className="wind">
-//           <p className="bold">14 MPH</p>
-
-//           <p>Wind Speed</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
 export default WeatherDisplay;
